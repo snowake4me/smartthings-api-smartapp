@@ -76,6 +76,10 @@ def listSwitches() {
 def listMeters() {
     def resp = []
     meters.each {
+
+    // The following syntax, cobbled together from above in listSwitches(), must be incorrect
+    // Intent is to return a list of the devices with the capability.powerMeter
+    // Another endpoint would allow the reading of various values/attributes from the meter
       resp << [name: it.displayName, value: it.currentValue("powerMeter")]
     }
     return resp
